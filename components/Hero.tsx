@@ -44,7 +44,9 @@ export function Hero({ hasCv, cvHref }: { hasCv: boolean; cvHref: string }) {
           className="object-cover object-[50%_0%] md:object-[50%_22%]"
         />
       </m.div>
-      <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/25 to-black/45" />
+      <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/25 to-transparent" />
+      {/* Fade the photo into the page background so the hero blends into the next section */}
+      <div aria-hidden="true" className="absolute inset-x-0 bottom-0 h-[55%] bg-gradient-to-b from-transparent via-background/70 to-background" />
 
       <div className="relative z-10 flex flex-col items-center text-center">
         <SplitHeading
@@ -66,7 +68,7 @@ export function Hero({ hasCv, cvHref }: { hasCv: boolean; cvHref: string }) {
         </Fade>
       </div>
       <m.div className="absolute inset-x-0 bottom-0" style={reduce ? undefined : { y }}>
-        <Bars trigger="mount" delay={delay + 0.2} interactive barColor="#ffffff" className="opacity-60" />
+        <Bars trigger="mount" delay={delay + 0.2} interactive />
       </m.div>
     </section>
   );
